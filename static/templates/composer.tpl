@@ -1,6 +1,6 @@
 <div component="composer" class="composer<!-- IF resizable --> resizable<!-- ENDIF resizable --><!-- IF !isTopicOrMain --> reply<!-- ENDIF !isTopicOrMain -->">
 
-	<div class="composer-container">
+	<div class="container composer-container">
 		<nav class="navbar navbar-fixed-top mobile-navbar hidden-md hidden-lg">
 			<div class="btn-group">
 				<button class="btn btn-sm btn-primary composer-discard" data-action="discard" tabindex="-1"><i class="fa fa-times"></i></button>
@@ -43,9 +43,8 @@
 			<div class="pull-right draft-icon hidden-xs hidden-sm"></div>
 
 			<div class="btn-group pull-right action-bar hidden-sm hidden-xs">
-				<button class="btn btn-default composer-discard" data-action="discard" tabindex="-1"><i class="fa fa-times"></i> [[topic:composer.discard]]</button>
-
-				<button class="btn btn-primary composer-submit" data-action="post" tabindex="6"><i class="fa fa-check"></i> [[topic:composer.submit]]</button>
+				<button class="btn btn-default composer-discard" data-action="discard" tabindex="-1">[[topic:composer.discard]]</button>
+				<button class="btn btn-primary composer-submit" data-action="post" tabindex="6">[[topic:composer.submit]]</button>
 			</div>
 		</div>
 
@@ -158,6 +157,10 @@
 
 		<div class="imagedrop"><div>[[topic:composer.drag_and_drop_images]]</div></div>
 
-		<div class="resizer"><div class="trigger text-center"><i class="fa"></i></div></div>
+		<div class="resizer">
+			<div class="container">
+				<div class="trigger text-left"><i class="fa text-center"></i></div>
+			</div>
+		</div>
 	</div>
 </div>

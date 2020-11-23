@@ -76,17 +76,44 @@
 		.title, .handle {
 			display: block;
 			margin: 0;
-			padding: 8px;
-			font-size: 18px;
-			border: 0;
 			.box-shadow(none);
 			overflow: hidden;
+			width: 555px;
+			font-size: 15px;
 		}
 
 		.category-list-container {
+			width: 229px;
+			margin-right: 30px;
 
 			[component="category-selector"] {
-				margin-right: 0.5em;
+				width: 100%;
+
+				.btn.btn-dropdown {
+					font-size: 15px;
+					line-height: 1;
+					font-weight: 400;
+					color: #B8AD93;
+					text-align: left;
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+					text-transform: none;
+					align-items: center;
+
+					.fa-stack {
+						height: 24px;
+						width: 24px;
+						line-height: 24px;
+						margin-right: 5px;
+					}
+				}
+
+				&:not(.open) {
+					.btn.btn-dropdown {
+						border: 1px solid #B8AD93;
+					}
+				}
 
 				.category-dropdown-menu {
 					max-height: 300px;
@@ -110,7 +137,7 @@
 	}
 
 	.formatting-bar {
-		margin: 0;
+		margin: 20px 0 0px;
 
 		span {
 			color: #000;
@@ -132,14 +159,24 @@
 			list-style: none;
 
 			li {
-				display: inline-block;
-				padding: 10px 15px;
+				display: inline-flex;
+				width: 38px;
+				height: 38px;
+				justify-content: center;
+				align-items: center;
 				cursor: pointer;
-				color: #333;
+				color: #B8AD93;
+				background: #3A332D;
+				font-size: 20px;
 
 				&:focus, &:hover {
 					outline: none;
-					background-color: darken(#fff, 10%);
+					background-color: #8C826A;
+					color: #1D191B;
+				}
+
+				& + li {
+					margin-left: 10px;
 				}
 			}
 		}
@@ -165,10 +202,10 @@
 		.help-text {
 			text-transform: uppercase;
 			position: absolute;
-			right: 35px;
-			top: 8px;
-			font-size: 10px;
-			color: #999;
+			right: 8px;
+			top: 3px;
+			font-size: 12px;
+			color: #B8AD93;
 			z-index: 1;
 		}
 	}
@@ -247,10 +284,42 @@
 			}
 
 			.label {
-				color: white;
-				font-size: 13px;
+				color: #DCD0B4;
+				font-size: 12px;
+				font-weight: 700;
+				line-height: 16px;
+				padding: 4px 5px;
+				background: #3A332D;
+
+				&:before {
+					font-family: 'corepunk-icons';
+					&:extend(.fa.fa-tag:before);
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 5px;
+					color: #110C11;
+				}
+			}
+
+			.tag [data-role="remove"] {
+				color: #B8AD93;
+
+				&:after {
+					font-family: 'corepunk-icons';
+					&:extend(.fa.fa-close:before);
+				}
+
+				&:hover {
+					box-shadow: none;
+				}
 			}
 		}
+
+		.dropdown-menu:after {
+			bottom: auto;
+			transform: rotate(180deg);
+		}
+
 	}
 
 	.category-selector {
@@ -294,10 +363,11 @@
 	.resizer {
 		display: none;
 		position: absolute;
-		left: 10%;
-		width: 80%;
+		left: 0;
+		width: 100%;
 		top: 0px;
 		height: 0;
+		text-align: left;
 
 		.pointer;
 
@@ -306,31 +376,37 @@
 			display: block;
 			top: -20px;
 			margin: 0 auto;
-			margin-left: 20px;
+			margin-left: 0;
 			line-height: 26px;
-			.transition(filter .15s linear);
 
 			&:hover {
-				filter: invert(100%);
+				i {
+					background-color: #D38E2C;
+					border-color: #D38E2C;
+				}
+
 				cursor: ns-resize;
 			}
 
 			i {
 				width: 32px;
 				height: 32px;
-				background: #333;
-				border: 1px solid #333;
+				background: #C07C2C;
+				border: 1px solid #C07C2C;
 				.border-radius(50%);
+
+				transition: background-color, border-color, background .15s linear;
 
 				position: relative;
 
-				color: #FFF;
-				font-size: 16px;
+				color: #1D191B;
+				font-size: 25px;
+				line-height: 32px;
 
 				&:before {
-					content: @fa-var-arrows-v;
+					font-family: 'corepunk-icons' !important;
+					&:extend(.fa.fa-arrows-v:before);
 					position: relative;
-					top: 25%;
 				}
 			}
 		}
@@ -387,7 +463,10 @@
 
 	&.resizable.maximized {
 		.resizer .trigger i {
+			font-size: 21px;
+
 			&:before {
+				font-family: 'FontAwesome' !important;
 				content: @fa-var-chevron-down;
 			}
 		}
@@ -455,6 +534,10 @@
 			animation: draft-saved 3s ease;
 		}
 	}
+
+	.composer-discard + .composer-submit {
+		margin-left: 30px;
+	}
 }
 
 @keyframes draft-saved {
@@ -481,8 +564,8 @@
 @media (min-width: @screen-md-max) {
 	html.composing {
 		.composer {
-			left: 10%;
-			width: 80%;
+			left: 0;
+			width: 100%;
 		}
 	}
 }
