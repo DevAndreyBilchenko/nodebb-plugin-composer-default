@@ -3,21 +3,23 @@
 	<div class="container composer-container">
 		<nav class="navbar navbar-fixed-top mobile-navbar hidden-md hidden-lg">
 			<div class="btn-group">
-				<button class="btn btn-sm btn-primary composer-discard" data-action="discard" tabindex="-1"><i class="fa fa-times"></i></button>
-				<button class="btn btn-sm btn-primary composer-minimize" data-action="minimize" tabindex="-1"><i class="fa fa-minus"></i></button>
+				<button class="btn btn-sm btn-link composer-minimize" data-action="minimize" tabindex="-1"><i class="fa fa-window-minimize"></i></button>
+				<button class="btn btn-sm btn-link composer-discard" data-action="discard" tabindex="-1"><i class="fa fa-close"></i></button>
 			</div>
+			<div class="btn-group composer-submit-wrap">
+				<button class="btn btn-send composer-submit" data-action="post" tabindex="-1"><i class="fa fa-chevron-right"></i></button>
+			</div>
+		</nav>
+		<div class="mobile-navbar-head hidden-md hidden-lg">
 			<!-- IF isTopic -->
 			<div class="category-name-container">
-				<span class="category-name"></span> <i class="fa fa-sort"></i>
+				<i class="fa fa-sort"></i><span class="category-name"></span>
 			</div>
 			<!-- ENDIF isTopic -->
 			<!-- IF !isTopicOrMain -->
 			<h4 class="title">[[topic:composer.replying_to, "{title}"]]</h4>
 			<!-- ENDIF !isTopicOrMain -->
-			<div class="btn-group">
-				<button class="btn btn-sm btn-primary composer-submit" data-action="post" tabindex="-1"><i class="fa fa-chevron-right"></i></button>
-			</div>
-		</nav>
+		</div>
 		<div class="row title-container">
 			<!-- IF isTopic -->
 			<div class="category-list-container hidden-sm hidden-xs"></div>
