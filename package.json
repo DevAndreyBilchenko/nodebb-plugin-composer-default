@@ -1,4 +1,27 @@
 {
+  "_from": "nodebb-plugin-composer-default@6.4.7",
+  "_id": "nodebb-plugin-composer-default@6.4.7",
+  "_inBundle": false,
+  "_integrity": "sha512-S75k1FOqpVq+sLTwk+2DuoOsCvIwdOjahcGZQ1w0gGuqQGEzYhEeEkbW83FTBUOQdnJkd5+eL/xEuP22sB9xKQ==",
+  "_location": "/nodebb-plugin-composer-default",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "nodebb-plugin-composer-default@6.4.7",
+    "name": "nodebb-plugin-composer-default",
+    "escapedName": "nodebb-plugin-composer-default",
+    "rawSpec": "6.4.7",
+    "saveSpec": null,
+    "fetchSpec": "6.4.7"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nodebb-plugin-composer-default/-/nodebb-plugin-composer-default-6.4.7.tgz",
+  "_shasum": "3dc8a5e8ef095eec6098a6b8905083fbeefbed8b",
+  "_spec": "nodebb-plugin-composer-default@6.4.7",
+  "_where": "C:\\Users\\Lenovo\\Work\\Projects\\corepunk",
   "author": {
     "name": "NodeBB Team",
     "email": "sales@nodebb.org"
