@@ -24,10 +24,18 @@
 	right: 0;
 	left: 0;
 
+	@media (max-width: @screen-sm-max) {
+		top: 0 !important;
+	}
+
 	.composer-container {
 		height: 100%;
 		display: flex;
 		flex-direction: column;
+
+		@media (max-width: @screen-sm-max) {
+			width: 100%;
+		}
 	}
 
 	.mobile-navbar {
@@ -68,11 +76,7 @@
 			left: auto;
 			right: auto;
 
-			@media (min-width: @screen-sm-min) {
-				width: 720px;
-			}
-
-			@media (max-width: @screen-xs-max) {
+			@media (max-width: @screen-sm-max) {
 				left: 0;
 				right: 0;
 			}
