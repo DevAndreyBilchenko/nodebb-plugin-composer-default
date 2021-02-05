@@ -70,15 +70,33 @@ define('composer/uploads', [
 
 		postContainer.on('paste change keypress', 'input#topic-thumb-url', function () {
 			var urlEl = $(this);
+			var preview = postContainer.find('img.topic-thumb-preview')
+			preview.css({
+				opacity: 0
+			});
+
 			setTimeout(function () {
 				var url = urlEl.val();
+
 				if (url) {
+					postContainer.find('.topic-thumb-preview-wrap').css({'display': 'flex'});
 					postContainer.find('.topic-thumb-clear-btn').removeClass('hide');
+
+					preview.one("load", function() {
+						preview.css({
+							opacity: 1
+						});
+					}).each(function() {
+						if(this.complete) {
+							$(this).trigger('load'); // For jQuery >= 3.0
+						}
+					});
 				} else {
+					postContainer.find('.topic-thumb-preview-wrap').hide();
 					resetInputFile(postContainer.find('input#topic-thumb-file'));
 					postContainer.find('.topic-thumb-clear-btn').addClass('hide');
 				}
-				postContainer.find('img.topic-thumb-preview').attr('src', url);
+				preview.attr('src', url);
 			}, 100);
 		});
 	}
@@ -352,6 +370,7 @@ define('composer/uploads', [
 
 		thumbForm.off('submit').submit(function () {
 			spinner.removeClass('hide');
+			thumbForm.find('.topic-thumb-preview-wrap').css({'display': 'flex'});
 
 			uploads.inProgress[post_uuid] = uploads.inProgress[post_uuid] || [];
 			uploads.inProgress[post_uuid].push(1);
@@ -380,6 +399,7 @@ define('composer/uploads', [
 		if (xhr && xhr.status === 413) {
 			msg = xhr.statusText || 'Request Entity Too Large';
 		}
+		$('.topic-thumb-container .topic-thumb-preview-wrap').hide();
 		app.alertError(msg);
 		$(window).trigger('action:composer.uploadError', {
 			post_uuid: post_uuid,

@@ -83,34 +83,39 @@
 					<li tabindex="-1">
 						<i class="fa fa-th-large topic-thumb-btn topic-thumb-toggle-btn hide" title="[[topic:composer.thumb_title]]"></i>
 					</li>
-					<div class="topic-thumb-container center-block hide">
-						<form id="thumbForm" method="post" class="topic-thumb-form form-inline" enctype="multipart/form-data">
-							<img class="topic-thumb-preview" {{{if thumb}}}src="{thumb}"{{{end}}}></img>
-							<div class="form-group">
-								<label for="topic-thumb-url">[[topic:composer.thumb_url_label]]</label>
-								<input type="text" id="topic-thumb-url" class="form-control" placeholder="[[topic:composer.thumb_url_placeholder]]" {{{if thumb}}}value="{thumb}"{{{end}}}/>
-							</div>
-							<div class="form-group">
-								<label for="topic-thumb-file">[[topic:composer.thumb_file_label]]</label>
-								<input type="file" id="topic-thumb-file" class="form-control" />
-							</div>
+				</ul>
+				<div class="topic-thumb-container center-block hide">
+					<form id="thumbForm" method="post" class="topic-thumb-form form-inline" enctype="multipart/form-data">
+						<div class="topic-thumb-preview-wrap">
+							<img class="topic-thumb-preview" {{{if thumb}}}src="{thumb}"{{{end}}}>
 							<div class="form-group topic-thumb-ctrl">
 								<i class="fa fa-spinner fa-spin hide topic-thumb-spinner" title="[[topic:composer.uploading]]"></i>
-								<i class="fa fa-times topic-thumb-btn hide topic-thumb-clear-btn" title="[[topic:composer.thumb_remove]]"></i>
+								<i class="fa fa-close topic-thumb-btn hide topic-thumb-clear-btn" title="[[topic:composer.thumb_remove]]"></i>
 							</div>
-						</form>
-					</div>
-					<!-- ENDIF allowTopicsThumbnail -->
-
-					<form id="fileForm" method="post" enctype="multipart/form-data">
-						<!--[if gte IE 9]><!-->
-							<input type="file" id="files" name="files[]" multiple class="gte-ie9 hide"/>
-						<!--<![endif]-->
-						<!--[if lt IE 9]>
-							<input type="file" id="files" name="files[]" class="lt-ie9 hide" value="Upload"/>
-						<![endif]-->
+						</div>
+						<div class="topic-thumb-main-control">
+							<div class="form-group">
+								<label for="topic-thumb-url" style="display: none">[[topic:composer.thumb_url_label]]</label>
+								<input type="text" id="topic-thumb-url" class="form-control" placeholder="[[topic:composer.thumb_url_label]] [[topic:composer.thumb_url_placeholder]]" {{{if thumb}}}value="{thumb}"{{{end}}}/>
+							</div>
+							<div class="composer-form-or">OR</div>
+							<div class="form-group">
+								<label for="topic-thumb-file" style="display: none">[[topic:composer.thumb_file_label]]</label>
+								<label class="btn btn-primary">Choose File<input type="file" id="topic-thumb-file" class="form-control" style="display: none" /></label>
+							</div>
+						</div>
 					</form>
-				</ul>
+				</div>
+				<!-- ENDIF allowTopicsThumbnail -->
+
+				<form id="fileForm" method="post" enctype="multipart/form-data">
+					<!--[if gte IE 9]><!-->
+					<input type="file" id="files" name="files[]" multiple class="gte-ie9 hide"/>
+					<!--<![endif]-->
+					<!--[if lt IE 9]>
+					<input type="file" id="files" name="files[]" class="lt-ie9 hide" value="Upload"/>
+					<![endif]-->
+				</form>
 			</div>
 		</div>
 
